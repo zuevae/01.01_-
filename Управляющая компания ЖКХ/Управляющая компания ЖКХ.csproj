@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,8 +64,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>ЖКХ.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Авторизация.cs">
+      <DependentUpon>ЖКХ.tt</DependentUpon>
+    </Compile>
     <Compile Include="Авторизация.xaml.cs">
       <DependentUpon>Авторизация.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ЖКХ.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ЖКХ.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ЖКХ.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ЖКХ.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ЖКХ.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ЖКХ.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Клиенты.cs">
+      <DependentUpon>ЖКХ.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Сотрудники.cs">
+      <DependentUpon>ЖКХ.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Услуги.cs">
+      <DependentUpon>ЖКХ.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Услуги.xaml.cs">
+      <DependentUpon>Услуги.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -71,6 +113,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Авторизация.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Услуги.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -93,9 +139,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="ЖКХ.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ЖКХ.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ЖКХ.edmx.diagram">
+      <DependentUpon>ЖКХ.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +163,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\ЖКХ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ЖКХ.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ЖКХ.Context.cs</LastGenOutput>
+      <DependentUpon>ЖКХ.edmx</DependentUpon>
+    </Content>
+    <Content Include="ЖКХ.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ЖКХ.edmx</DependentUpon>
+      <LastGenOutput>ЖКХ.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

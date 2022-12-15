@@ -43,20 +43,24 @@
                  VerticalAlignment="Center" 
                  Width="120" 
                  FontSize="18"/>
-        <Button Content="Войти" 
+        <Button x:Name="Vxod"
+                Content="Войти" 
                 HorizontalAlignment="Center" 
                 Margin="0,287,0,0" 
                 VerticalAlignment="Top" 
                 FontSize="18" 
                 Width="64" 
-                Height="35" Background="#FFEB5228"/>
+                Height="35" 
+                Background="#FFEB5228"
+                Click="Vxod_Click_Open"/>
         <Button Content="Зарегистрироваться" 
                 HorizontalAlignment="Center" 
                 Margin="0,376,0,0" 
                 VerticalAlignment="Top" 
                 FontSize="18" 
                 Height="35" 
-                Width="188" Background="#FFEB5228"/>
+                Width="188" 
+                Background="#FFEB5228"/>
 
     </Grid>
 </Page>
